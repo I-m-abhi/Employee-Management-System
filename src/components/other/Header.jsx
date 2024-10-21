@@ -1,15 +1,9 @@
-import { useState } from "react";
-
-const Header = ({userName}) => {
+const Header = ({userName, setUser}) => {
   const handleLogOut = ()=> {
-    localStorage.setItem('loggedInUser','');
-    window.location.reload();
+    localStorage.setItem('loggedInUser',JSON.stringify({role : ''}));
+    setUser('');
+    // window.location.reload();
   };
-  // const [pannel, setPannel] = useState('Admin');
-  // if(userName){
-  //   setPannel(userName);
-  //   console.log(userName)
-  // };
 
   return (
     <div className="header">

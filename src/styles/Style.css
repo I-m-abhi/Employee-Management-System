@@ -105,3 +105,47 @@
     }
   }
 }
+
+/* AdminDashboard */
+.create-task .container form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & label {
+    display: block;
+    font-size: 1.8rem;
+    margin: .4rem 0;
+  }
+  & input, textarea, button {
+    font-size: 1.8rem;
+    width: 100%;
+    padding: .4rem;
+    margin-bottom: .8rem;
+  }
+  & button {
+    background-color: rgb(141, 247, 141);
+  }
+}
+
+.all-task .container {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  & .user-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: .1rem solid rgb(152, 220, 152);
+    border-radius: .4rem;
+    padding: 1.4rem;
+
+    & h2 {
+      font-size: 1.8rem;
+    }
+
+    & .task-num {
+      font-size: 1.6rem;
+    }
+  }
+}
