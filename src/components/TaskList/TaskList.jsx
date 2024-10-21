@@ -1,71 +1,27 @@
-const TaskList = () => {
+import AcceptTask from "./AcceptTask";
+import CompleteTask from "./CompleteTask";
+import FailedTask from "./FailedTask";
+import NewTask from "./NewTask";
+
+const TaskList = ({ tasks }) => {
+
   return (
     <div className="task-list">
       <div className="container">
-        <div className="task-item">
-          <div className="item-details">
-            <p>High</p>
-            <p>20 Feb 2024</p>
-          </div>
-          <h3>Solve JS problems</h3>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita quia rerum laboriosam nemo corporis exercitationem. Neque, dolorem voluptate architecto culpa debitis facere consequuntur molestiae ex!</p>
-        </div>
-        <div className="task-item">
-          <div className="item-details">
-            <p>High</p>
-            <p>20 Feb 2024</p>
-          </div>
-          <h3>Solve JS problems</h3>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita quia rerum laboriosam nemo corporis exercitationem. Neque, dolorem voluptate architecto culpa debitis facere consequuntur molestiae ex!</p>
-        </div>
-        <div className="task-item">
-          <div className="item-details">
-            <p>High</p>
-            <p>20 Feb 2024</p>
-          </div>
-          <h3>Solve JS problems</h3>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita quia rerum laboriosam nemo corporis exercitationem. Neque, dolorem voluptate architecto culpa debitis facere consequuntur molestiae ex!</p>
-        </div>
-        <div className="task-item">
-          <div className="item-details">
-            <p>High</p>
-            <p>20 Feb 2024</p>
-          </div>
-          <h3>Solve JS problems</h3>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita quia rerum laboriosam nemo corporis exercitationem. Neque, dolorem voluptate architecto culpa debitis facere consequuntur molestiae ex!</p>
-        </div>
-        <div className="task-item">
-          <div className="item-details">
-            <p>High</p>
-            <p>20 Feb 2024</p>
-          </div>
-          <h3>Solve JS problems</h3>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita quia rerum laboriosam nemo corporis exercitationem. Neque, dolorem voluptate architecto culpa debitis facere consequuntur molestiae ex!</p>
-        </div>
-        <div className="task-item">
-          <div className="item-details">
-            <p>High</p>
-            <p>20 Feb 2024</p>
-          </div>
-          <h3>Solve JS problems</h3>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita quia rerum laboriosam nemo corporis exercitationem. Neque, dolorem voluptate architecto culpa debitis facere consequuntur molestiae ex!</p>
-        </div>
-        <div className="task-item">
-          <div className="item-details">
-            <p>High</p>
-            <p>20 Feb 2024</p>
-          </div>
-          <h3>Solve JS problems</h3>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita quia rerum laboriosam nemo corporis exercitationem. Neque, dolorem voluptate architecto culpa debitis facere consequuntur molestiae ex!</p>
-        </div>
-        <div className="task-item">
-          <div className="item-details">
-            <p>High</p>
-            <p>20 Feb 2024</p>
-          </div>
-          <h3>Solve JS problems</h3>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita quia rerum laboriosam nemo corporis exercitationem. Neque, dolorem voluptate architecto culpa debitis facere consequuntur molestiae ex!</p>
-        </div>
+        {tasks.map((elem, id) => {
+          if(elem.newTask) {
+            return <NewTask key={id} task={elem}/>
+          }
+          if(elem.active) {
+            return <AcceptTask key={id} task={elem}/>
+          }
+          if(elem.completedTask) {
+            return <CompleteTask key={id} task={elem}/>
+          }
+          if(elem.failedTask) {
+            return <FailedTask key={id} task={elem}/>
+          }
+        })}
       </div>
     </div>
   )
