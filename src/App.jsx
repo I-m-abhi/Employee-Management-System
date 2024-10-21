@@ -23,13 +23,11 @@ const App = () => {
     if (email == 'admin@me.com' && password == '123') {
       setUser('admin');
       localStorage.setItem('loggedInUser', JSON.stringify({ role: 'admin' }));
-    } else if (employeesData) {
+    } else if (employeesData.find((e) => email == e.email && password == e.password)) {
       const employee = employeesData.find((e) => email == e.email && password == e.password)
-      if (employee) {
         setUser('employee');
         setUserData(employee);
         localStorage.setItem('loggedInUser', JSON.stringify({ role: 'employee', employee }));
-      }
     } else {
       alert('Wrong Credentials');
     }
